@@ -14,6 +14,7 @@ endif
 export PACKAGE_TITLE ?= confluent-cli
 export FULL_PACKAGE_TITLE = $(PACKAGE_TITLE)
 export PACKAGE_NAME = $(FULL_PACKAGE_TITLE)-$(VERSION)
+export TMPDIR_OVERRIDE = true
 
 # Defaults that are likely to vary by platform. These are cleanly separated so
 # it should be easy to maintain altered values on platform-specific branches
