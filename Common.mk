@@ -25,7 +25,11 @@ prep:
 	mkdir -p bin/
 
 oss: prep
+ifdef TMPDIR_OVERRIDE
+	sed 's@tmp_dir="$${TMPDIR:-/tmp/}"@tmp_dir=/var/lib/confluent@g' src/oss/confluent.sh > bin/confluent
+else
 	cp -f src/oss/confluent.sh bin/confluent
+endif
 	chmod 755 bin/confluent
 
 platform: prep
